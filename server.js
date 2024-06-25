@@ -46,22 +46,31 @@ app.post('/generate-excel', async (req, res) => {
 
   const {headers, rowsData} = jsonData;
 
-const columnNames = Object.values(headers);
-    const cellKeys = Object.keys(headers);
-    columnNames.forEach((header, index) => {
-      ws.cell(1, index + 1).string(header);
-    });
+  const columnNames = Object.values(headers);
+  const cellKeys = Object.keys(headers);
+  columnNames.forEach((header, index) => {
+    ws.cell(1, index + 1).style(headerStyle).string(header);
+  });
+
+  let maxLengths = columnNames.map(name => name.length);
 
     rowsData.forEach((data, rowIndex) => {
       cellKeys.forEach((key, colIndex) => {
         const cellValue = data[key];
         if (typeof cellValue === 'number') {
-          ws.cell(rowIndex + 2, colIndex + 1).number(cellValue);
+          ws.cell(rowIndex + 2, colIndex + 1).style(cellStyle).number(cellValue);
         } else {
-          ws.cell(rowIndex + 2, colIndex + 1).string(cellValue);
+          ws.cell(rowIndex + 2, colIndex + 1).style(cellStyle).string(cellValue);
         }
+        if (cellValue.length > maxLengths[colIndex]) {
+          maxLengths[colIndex] = cellValue.length;
+      }
       });
     });
+
+    for (let i = 0; i < maxLengths.length; i++) {
+      ws.column(i + 1).setWidth(maxLengths[i] + 2); // Add some padding to the width
+  }
 
   const buffer = await wb.writeToBuffer();
   const base64Buffer = buffer.toString('base64');
