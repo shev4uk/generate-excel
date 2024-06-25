@@ -18,9 +18,9 @@
       try {
         const response = await axios.post('http://localhost:3000/generate-excel', jsonData);
 
-        const { status, buffer } = response.data;
+        const { status, data } = response.data;
         if (status === 'success') {
-          const binaryString = atob(buffer);
+          const binaryString = atob(data);
           const len = binaryString.length;
           const bytes = new Uint8Array(len);
           for (let i = 0; i < len; i++) {

@@ -72,7 +72,7 @@ app.post('/generate-excel', async (req, res) => {
   });
   res.end(JSON.stringify({
     status: 'success',
-    buffer: base64Buffer,
+    data: base64Buffer,
   }));
 });
 
