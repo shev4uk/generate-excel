@@ -1,0 +1,8 @@
+{
+  "type": "module",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "excel4node": "^1.8.2",
+    "express": "^4.19.2"
+  }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Excel Download</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <button id="downloadBtn">Download Excel</button>
+  <script>
+    document.getElementById('downloadBtn').addEventListener('click', async () => {
+      const jsonData = [
+        { name: "John Doe", age: 30, email: "john.doe@example.com" },
+        { name: "Jane Smith", age: 25, email: "jane.smith@example.com" },
+      ];
+
+      try {
+        const response = await axios.post('http://localhost:3000/generate-excel', jsonData);
+
+        const { status, buffer } = response.data;
+        if (status === 'success') {
+          const binaryString = atob(buffer);
+          const len = binaryString.length;
+          const bytes = new Uint8Array(len);
+          for (let i = 0; i < len; i++) {
+            bytes[i] = binaryString.charCodeAt(i);
+          }
+          const blob = new Blob([bytes], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+          const url = window.URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.setAttribute('download', 'output.xlsx');
+          document.body.appendChild(link);
+          link.click();
+        } else {
+          console.error('Failed to generate Excel file');
+        }
+      } catch (error) {
+        console.error('Error downloading the Excel file:', error);
+      }
+    });
+  </script>
+</body>
+</html>
