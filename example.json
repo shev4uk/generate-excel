@@ -1,0 +1,55 @@
+[                {
+                    "primaryLocName": "23 Hour Observation Bed",
+                    "covered": true,
+                    "parentLevelOfCareList": [
+                        {
+                            "parentLocName": "Mental Health",
+                            "inNetworkLoc": {
+                                "locName": "Mental Health",
+                                "coveredStr": "Covered",
+                                "authPercentReqStr": "No",
+                                "tier1CoInsurance": "You Pay 0%, Plan Pays 100%",
+                                "tier1Copay": "$300/Admit",
+                                "deductibleFamilyStr": "Does not apply",
+                                "deductibleIndStr": "Does not apply",
+                                "oopFamilyStr": "$9100",
+                                "oopIndStr": "$4550"
+                            },
+                            "outNetworkLoc": {
+                                "locName": "Mental Health",
+                                "coveredStr": "Covered",
+                                "authPercentReqStr": "No",
+                                "tier1CoInsurance": "You pay 20%, plan pays 80%",
+                                "tier1Copay": "$500/Admit",
+                                "deductibleFamilyStr": "Does not apply",
+                                "deductibleIndStr": "Does not apply",
+                                "oopFamilyStr": "Does not apply to OON Benefits",
+                                "oopIndStr": "Does not apply to OON Benefits"
+                            }
+                        },
+                        {
+                            "parentLocName": "Substance Use",
+                            "inNetworkLoc": {
+                                "locName": "Substance Use",
+                                "coveredStr": "Covered",
+                                "authPercentReqStr": "No",
+                                "tier1CoInsurance": "You Pay 0%, Plan Pays 100%",
+                                "tier1Copay": "$300/Admit",
+                                "deductibleFamilyStr": "Does not apply",
+                                "deductibleIndStr": "Does not apply",
+                                "oopFamilyStr": "$9100",
+                                "oopIndStr": "$4550"
+                            },
+                            "outNetworkLoc": {
+                                "locName": "Substance Use",
+                                "coveredStr": "Covered",
+                                "authPercentReqStr": "No",
+                                "tier1CoInsurance": "You Pay 0%, Plan Pays 100%",
+                                "tier1Copay": "$500/Admit",
+                                "oopFamilyStr": "Does not apply to OON Benefits",
+                                "oopIndStr": "Does not apply to OON Benefits"
+                            },
+                        }
+                    ]
+                }
+            ]
