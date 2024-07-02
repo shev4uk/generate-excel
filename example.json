@@ -1,4 +1,9 @@
 {
+  "caption": {
+    "memberName": "JEANETTE RHINEHART",
+    "memberId": "XXXXXXXX104",
+    "benefitEffectiveDate": "06/30/2020"
+  },
   "headers": {
     "inNetworkLoc": "In-network",
     "outNetworkLoc": "Out-of-Network",
@@ -9,7 +14,10 @@
     "deductibleFamilyStr": "Individual deductible",
     "deductibleIndStr": "Family deductible",
     "oopFamilyStr": "Individual OOP Max",
-    "oopIndStr": "Family OOP Max"
+    "oopIndStr": "Family OOP Max",
+    "memberName": "Member Name",
+    "memberId": "Member Id",
+    "benefitEffectiveDate": "Benefit Effective Date"
   },
   "rowsData": [
     {
