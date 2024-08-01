@@ -14,7 +14,7 @@ const port = 3000;
 app.use(bodyParser.json());
 
 app.post('/generate-excel', (req, res) => {
-    const { headers, rowsData } = req.body;
+    const { caption, headers, rowsData } = req.body;
 
     const wb = new xl.Workbook();
     const ws = wb.addWorksheet('Sheet 1');
@@ -42,6 +42,17 @@ app.post('/generate-excel', (req, res) => {
         },
     });
 
+    const captionStyle = wb.createStyle({
+        fill: {
+            type: 'pattern',
+            patternType: 'solid',
+            fgColor: '#f3fcf8',
+        },
+        font: {
+            bold: true,
+        },
+    });
+
     const colWidths = [0, 0, 0, 0];
 
     const setMaxWidth = (colIndex, value) => {
@@ -53,7 +64,15 @@ app.post('/generate-excel', (req, res) => {
         }
     };
 
-    let row = 1;
+    ws.cell(1, 1).string(headers.memberName).style(captionStyle);
+    ws.cell(1, 2).string(headers.memberId).style(captionStyle);
+    ws.cell(1, 3).string(headers.benefitEffectiveDate).style(captionStyle);
+
+    ws.cell(2, 1).string(caption.memberName).style(captionStyle);
+    ws.cell(2, 2).string(caption.memberId).style(captionStyle);
+    ws.cell(2, 3).string(caption.benefitEffectiveDate).style(captionStyle);
+
+    let row = 4;
     
     rowsData.forEach((item, index) => {
         const header1 = item.primaryLocName;
@@ -105,6 +124,8 @@ app.post('/generate-excel', (req, res) => {
     colWidths.forEach((width, index) => {
         ws.column(index + 1).setWidth(width + 2);
     });
+
+    // Set column widths based on content
 
     wb.write('CoveragePlan.xlsx', res);
 });

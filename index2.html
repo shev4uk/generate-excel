@@ -1,158 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Generate Excel</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Generate Excel File</h1>
     <button id="generateBtn">Generate Excel</button>
 
     <script>
-        document.getElementById('generateBtn').addEventListener('click', () => {
-            fetch('/generate-excel', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    "headers": {
-                        "inNetworkLoc": "In-network",
-                        "outNetworkLoc": "Out-of-Network",
-                        "coveredStr": "Coverage",
-                        "authPercentReqStr": "Authorization/Precertification",
-                        "tier1CoInsurance": "Coinsurance",
-                        "tier1Copay": "Copayment",
-                        "deductibleFamilyStr": "Individual deductible",
-                        "deductibleIndStr": "Family deductible",
-                        "oopFamilyStr": "Individual OOP Max",
-                        "oopIndStr": "Family OOP Max"
+      document.getElementById("generateBtn").addEventListener("click", () => {
+        fetch("/generate-excel", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            caption: {
+              memberName: "JEANETTE RHINEHART",
+              memberId: "XXXXXXXX104",
+              benefitEffectiveDate: "06/30/2020",
+            },
+            headers: {
+              inNetworkLoc: "In-network",
+              outNetworkLoc: "Out-of-Network",
+              coveredStr: "Coverage",
+              authPercentReqStr: "Authorization/Precertification",
+              tier1CoInsurance: "Coinsurance",
+              tier1Copay: "Copayment",
+              deductibleFamilyStr: "Individual deductible",
+              deductibleIndStr: "Family deductible",
+              oopFamilyStr: "Individual OOP Max",
+              oopIndStr: "Family OOP Max",
+              memberName: "Member Name",
+              memberId: "Member Id",
+              benefitEffectiveDate: "Benefit Effective Date",
+            },
+            rowsData: [
+              {
+                primaryLocName: "23 Hour Observation Bed",
+                covered: "Covered",
+                parentLevelOfCareList: [
+                  {
+                    parentLocName: "Mental Health",
+                    inNetworkLoc: {
+                      locName: "Mental Health",
+                      coveredStr: "Covered",
+                      authPercentReqStr: "No",
+                      tier1CoInsurance: "You Pay 0%, Plan Pays 100%",
+                      tier1Copay: "$300/Admit",
+                      deductibleFamilyStr: "Does not apply",
+                      deductibleIndStr: "Does not apply",
+                      oopFamilyStr: "$9100",
+                      oopIndStr: "$4550",
                     },
-                    "rowsData": [
-                        {
-                            "primaryLocName": "23 Hour Observation Bed",
-                            "covered": "Covered",
-                            "parentLevelOfCareList": [
-                                {
-                                    "parentLocName": "Mental Health",
-                                    "inNetworkLoc": {
-                                        "locName": "Mental Health",
-                                        "coveredStr": "Covered",
-                                        "authPercentReqStr": "No",
-                                        "tier1CoInsurance": "You Pay 0%, Plan Pays 100%",
-                                        "tier1Copay": "$300/Admit",
-                                        "deductibleFamilyStr": "Does not apply",
-                                        "deductibleIndStr": "Does not apply",
-                                        "oopFamilyStr": "$9100",
-                                        "oopIndStr": "$4550"
-                                    },
-                                    "outNetworkLoc": {
-                                        "locName": "Mental Health",
-                                        "coveredStr": "Covered",
-                                        "authPercentReqStr": "No",
-                                        "tier1CoInsurance": "You pay 20%, plan pays 80%",
-                                        "tier1Copay": "$500/Admit",
-                                        "deductibleFamilyStr": "Does not apply",
-                                        "deductibleIndStr": "Does not apply",
-                                        "oopFamilyStr": "Does not apply to OON Benefits",
-                                        "oopIndStr": "Does not apply to OON Benefits"
-                                    }
-                                },
-                                {
-                                    "parentLocName": "Substance Use",
-                                    "inNetworkLoc": {
-                                        "locName": "Substance Use",
-                                        "coveredStr": "Covered",
-                                        "authPercentReqStr": "No",
-                                        "tier1CoInsurance": "You Pay 0%, Plan Pays 100%",
-                                        "tier1Copay": "$300/Admit",
-                                        "deductibleFamilyStr": "Does not apply",
-                                        "deductibleIndStr": "Does not apply",
-                                        "oopFamilyStr": "$9100",
-                                        "oopIndStr": "$4550"
-                                    },
-                                    "outNetworkLoc": {
-                                        "locName": "Substance Use",
-                                        "coveredStr": "Covered",
-                                        "authPercentReqStr": "No",
-                                        "tier1CoInsurance": "You Pay 0%, Plan Pays 100%",
-                                        "tier1Copay": "$500/Admit",
-                                        "oopFamilyStr": "Does not apply to OON Benefits",
-                                        "oopIndStr": "Does not apply to OON Benefits"
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "primaryLocName": "72 Hour Observation Bed",
-                            "covered": "Not Covered",
-                            "parentLevelOfCareList": [
-                                {
-                                    "parentLocName": "Mental Health",
-                                    "inNetworkLoc": {
-                                        "locName": "Mental Health",
-                                        "coveredStr": "Covered",
-                                        "authPercentReqStr": "No",
-                                        "tier1CoInsurance": "You Pay 0%, Plan Pays 100%",
-                                        "tier1Copay": "$300/Admit",
-                                        "deductibleFamilyStr": "Does not apply",
-                                        "deductibleIndStr": "Does not apply",
-                                        "oopFamilyStr": "$9100",
-                                        "oopIndStr": "$4550"
-                                    },
-                                    "outNetworkLoc": {
-                                        "locName": "Mental Health",
-                                        "coveredStr": "Covered",
-                                        "authPercentReqStr": "No",
-                                        "tier1CoInsurance": "You pay 20%, plan pays 80%",
-                                        "tier1Copay": "$500/Admit",
-                                        "deductibleFamilyStr": "Does not apply",
-                                        "deductibleIndStr": "Does not apply",
-                                        "oopFamilyStr": "Does not apply to OON Benefits",
-                                        "oopIndStr": "Does not apply to OON Benefits"
-                                    }
-                                },
-                                {
-                                    "parentLocName": "Substance Use",
-                                    "inNetworkLoc": {
-                                        "locName": "Substance Use",
-                                        "coveredStr": "Covered",
-                                        "authPercentReqStr": "No",
-                                        "tier1CoInsurance": "You Pay 0%, Plan Pays 100%",
-                                        "tier1Copay": "$300/Admit",
-                                        "deductibleFamilyStr": "Does not apply",
-                                        "deductibleIndStr": "Does not apply",
-                                        "oopFamilyStr": "$9100",
-                                        "oopIndStr": "$4550"
-                                    },
-                                    "outNetworkLoc": {
-                                        "locName": "Substance Use",
-                                        "coveredStr": "Covered",
-                                        "authPercentReqStr": "No",
-                                        "tier1CoInsurance": "You Pay 0%, Plan Pays 100%",
-                                        "tier1Copay": "$500/Admit",
-                                        "oopFamilyStr": "Does not apply to OON Benefits",
-                                        "oopIndStr": "Does not apply to OON Benefits"
-                                    }
-                                }
-                            ]
-                        }
-                    ]
-                })
-            })
-            .then(response => response.blob())
-            .then(blob => {
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'CoveragePlan.xlsx';
-                document.body.appendChild(a);
-                a.click();
-                a.remove();
-            })
-            .catch(error => console.error('Error generating Excel file:', error));
-        });
+                    outNetworkLoc: {
+                      locName: "Mental Health",
+                      coveredStr: "Covered",
+                      authPercentReqStr: "No",
+                      tier1CoInsurance: "You pay 20%, plan pays 80%",
+                      tier1Copay: "$500/Admit",
+                      deductibleFamilyStr: "Does not apply",
+                      deductibleIndStr: "Does not apply",
+                      oopFamilyStr: "Does not apply to OON Benefits",
+                      oopIndStr: "Does not apply to OON Benefits",
+                    },
+                  },
+                  {
+                    parentLocName: "Substance Use",
+                    inNetworkLoc: {
+                      locName: "Substance Use",
+                      coveredStr: "Covered",
+                      authPercentReqStr: "No",
+                      tier1CoInsurance: "You Pay 0%, Plan Pays 100%",
+                      tier1Copay: "$300/Admit",
+                      deductibleFamilyStr: "Does not apply",
+                      deductibleIndStr: "Does not apply",
+                      oopFamilyStr: "$9100",
+                      oopIndStr: "$4550",
+                    },
+                    outNetworkLoc: {
+                      locName: "Substance Use",
+                      coveredStr: "Covered",
+                      authPercentReqStr: "No",
+                      tier1CoInsurance: "You Pay 0%, Plan Pays 100%",
+                      tier1Copay: "$500/Admit",
+                      oopFamilyStr: "Does not apply to OON Benefits",
+                      oopIndStr: "Does not apply to OON Benefits",
+                    },
+                  },
+                ],
+              },
+              {
+                primaryLocName: "72 Hour Observation Bed",
+                covered: "Not Covered",
+                parentLevelOfCareList: [
+                  {
+                    parentLocName: "Mental Health",
+                    inNetworkLoc: {
+                      locName: "Mental Health",
+                      coveredStr: "Covered",
+                      authPercentReqStr: "No",
+                      tier1CoInsurance: "You Pay 0%, Plan Pays 100%",
+                      tier1Copay: "$300/Admit",
+                      deductibleFamilyStr: "Does not apply",
+                      deductibleIndStr: "Does not apply",
+                      oopFamilyStr: "$9100",
+                      oopIndStr: "$4550",
+                    },
+                    outNetworkLoc: {
+                      locName: "Mental Health",
+                      coveredStr: "Covered",
+                      authPercentReqStr: "No",
+                      tier1CoInsurance: "You pay 20%, plan pays 80%",
+                      tier1Copay: "$500/Admit",
+                      deductibleFamilyStr: "Does not apply",
+                      deductibleIndStr: "Does not apply",
+                      oopFamilyStr: "Does not apply to OON Benefits",
+                      oopIndStr: "Does not apply to OON Benefits",
+                    },
+                  },
+                  {
+                    parentLocName: "Substance Use",
+                    inNetworkLoc: {
+                      locName: "Substance Use",
+                      coveredStr: "Covered",
+                      authPercentReqStr: "No",
+                      tier1CoInsurance: "You Pay 0%, Plan Pays 100%",
+                      tier1Copay: "$300/Admit",
+                      deductibleFamilyStr: "Does not apply",
+                      deductibleIndStr: "Does not apply",
+                      oopFamilyStr: "$9100",
+                      oopIndStr: "$4550",
+                    },
+                    outNetworkLoc: {
+                      locName: "Substance Use",
+                      coveredStr: "Covered",
+                      authPercentReqStr: "No",
+                      tier1CoInsurance: "You Pay 0%, Plan Pays 100%",
+                      tier1Copay: "$500/Admit",
+                      oopFamilyStr: "Does not apply to OON Benefits",
+                      oopIndStr: "Does not apply to OON Benefits",
+                    },
+                  },
+                ],
+              },
+            ],
+          }),
+        })
+          .then((response) => response.blob())
+          .then((blob) => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "CoveragePlan.xlsx";
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+          })
+          .catch((error) =>
+            console.error("Error generating Excel file:", error)
+          );
+      });
     </script>
-</body>
+  </body>
 </html>
