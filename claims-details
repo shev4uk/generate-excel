@@ -15,6 +15,18 @@
             "amountTowards": "Amount Towards Deductable",
             "amountTowardsTooltip": "\u003Cp\u003EAmount Towards Deductable Tooltip\u003C/p\u003E",
             "status": "status"
+        },
+        "table": {
+            "serviceDate": "Service Date",
+            "typeOfService": "Type of Service",
+            "totalCharge": "Total Charge",
+            "paidAmount": "Paid Amount",
+            "amountAllowed": "Amount Allowed",
+            "appliedToDeductible": "Applyied to Deductible",
+            "copayment": "Copayment ",
+            "coinsurance": "Coinsurance",
+            "eob": "EOB",
+            "totalAmount": "Total Amount"
         }
     },
     "rowsData": [
