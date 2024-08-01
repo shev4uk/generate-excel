@@ -1,0 +1,41 @@
+{
+    "headers": {
+        "titles": {
+            "details": "Claim details",
+            "eob": "Explanantion Of Benefits(EOB)",
+            "payment": "Payment details"
+        },
+        "details": {
+            "claimNumber": "Claim #",
+            "providerName": "Provider Name",
+            "startDate": "Service Start Date",
+            "endDate": "Service End Date",
+            "paidDate": "Paid Date",
+            "paidTo": "Paid To",
+            "amountTowards": "Amount Towards Deductable",
+            "amountTowardsTooltip": "\u003Cp\u003EAmount Towards Deductable Tooltip\u003C/p\u003E",
+            "status": "status"
+        }
+    },
+    "rowsData": [
+        {
+            "branchCode": "01",
+            "batchDate": 1707886800000,
+            "batchSequenceNumber": 9015,
+            "sequenceNumber": 76,
+            "lineNumber": 1,
+            "dateOfService": "01/09/2024",
+            "serviceCode": "99443",
+            "serviceDesc": "TELEPHONE EVALUATION & MANAGEMENT SERVICE PROVIDEDBY A PHYSICIAN TO AN EST PATIENT,PARENT,GUARDIAN.21-30 MINUTES OF MEDICAL DISCUSSIONSYNCHRONOUS TELEMED SVC RENDERED REAL TIME AUDIO",
+            "claimedAmount": 395.4,
+            "amountPaid": 395.4,
+            "allowedAmount": 395.4,
+            "deductibleAmount": 0,
+            "copayAmount": 0,
+            "coinsuranceAmount": 0,
+            "eopCodes": ""
+        }
+    ],
+    "explanation": "\u003Cp\u003EBX -&nbsp;Business Claims\u003C/p\u003E",
+    "status": "inProgress"
+}
