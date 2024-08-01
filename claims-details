@@ -29,7 +29,27 @@
             "totalAmount": "Total Amount"
         }
     },
-    "rowsData": [
+    "claimPaymentDetail": {
+        "claimNumber": "01-021424-9015-76",
+        "providerId": "143506",
+        "providerName": "ST BARNABAS HOSPITAL",
+        "status": "In Progress",
+        "copayAmount": 0,
+        "coinsuranceAmount": 0,
+        "amountBilled": 395.4,
+        "amountAllowed": 395.4,
+        "amountAppliedTowardsDeductible": 0,
+        "paidAmount": 395.4,
+        "serviceStartDate": "01/09/2024",
+        "serviceEndDate": "01/09/2024",
+        "paidDate": null,
+        "paidTo": "ST BARNABAS HOSPITAL",
+        "vendorId": "D433972",
+        "totalCharge": 395.4,
+        "providerResponsibility": 0,
+        "totalDeductible": 0
+    },
+    "claimPaymentDetails": [
         {
             "branchCode": "01",
             "batchDate": 1707886800000,
