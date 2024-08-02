@@ -1,0 +1,11 @@
+    // Parse explanation HTML string
+    const explanationEntries = explanation
+        .split('</p>')
+        .map(entry => entry.replace('<p>', '').split('&nbsp;-&nbsp;').map(item => item.trim()))
+        .filter(entry => entry.length === 2);
+
+    explanationEntries.forEach((entry) => {
+        ws.cell(row, 1).string(entry[0]);
+        ws.cell(row, 2).string(entry[1]);
+        row++;
+    });
